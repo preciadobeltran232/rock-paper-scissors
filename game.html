@@ -22,22 +22,25 @@
 
         function singleRound(playerChoice, computerChoice){
             if(playerChoice == computerChoice){
-                score += 0;
+                score += 1;
                 return `Tie: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }else if(playerChoice == "rock" && computerChoice == "paper"){
-                score -+10
+                score -=5
                 return `Loss: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }else if(playerChoice == "rock" && computerChoice == "scissors"){
-                score +=80
+                score +=100
                 return `Win: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }else if(playerChoice == "paper" && computerChoice == "rock"){
-                
+                score +=100
                 return `Win: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }else if(playerChoice == "paper" && computerChoice == "scissors"){
+                score -=5
                 return `Loss: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }else if(playerChoice == "scissors" && computerChoice == "rock"){
+                score -=5
                 return `Loss: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }else if(playerChoice == "scissors" && computerChoice == "paper"){
+                score +=100
                 return `Win: You chose ${playerChoice}, computer chose ${computerChoice}`;
             }
         }
@@ -65,6 +68,11 @@
 
 
             alert(`round 5 score: ${score}`)
+            playerChoice = prompt("Please input a rock paper or scissors: ").toLowerCase();
+            computerChoice = computerPlay();
+            console.log(singleRound(playerChoice, computerChoice));
+
+            alert(`round 6 score: ${score}`)
             playerChoice = prompt("Please input a rock paper or scissors: ").toLowerCase();
             computerChoice = computerPlay();
             console.log(singleRound(playerChoice, computerChoice));
